@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Calculator</title>
+  <style>
+    body { background: #0d1117; color: white; font-family: sans-serif; text-align: center; margin-top: 50px; }
+    input { width: 60px; padding: 10px; margin: 5px; border-radius: 5px; border: none; text-align: center; }
+    button { padding: 10px 15px; margin: 5px; background: #238636; color: white; border: none; border-radius: 5px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h1>🧮 Simple Calculator</h1>
+  <input type="number" id="a" placeholder="a">
+  <input type="number" id="b" placeholder="b"><br>
+  <button onclick="calc('+')">+</button>
+  <button onclick="calc('-')">-</button>
+  <button onclick="calc('*')">*</button>
+  <button onclick="calc('/')">/</button>
+  <h2 id="result"></h2>
+
+  <script>
+    function calc(op) {
+      const a = parseFloat(document.getElementById('a').value);
+      const b = parseFloat(document.getElementById('b').value);
+      let res;
+      switch (op) {
+        case '+': res = a + b; break;
+        case '-': res = a - b; break;
+        case '*': res = a * b; break;
+        case '/': res = b !== 0 ? a / b : 'Error'; break;
+      }
+      document.getElementById('result').innerText = "Result: " + res;
+    }
+  </script>
+</body>
+</html>
